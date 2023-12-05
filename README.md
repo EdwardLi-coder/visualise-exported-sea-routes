@@ -1,27 +1,63 @@
-# VisualiseExportedSeaRoutes
+# Marcura Frontend Developer Test - Angular Components
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+## Component List
 
-## Development server
+### 1. `MapComponent`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Responsibility**: Displaying the global map.
+- **Features**:
+  - Initialize without showing any routes.
+  - Draw the selected shipping route on the map based on user selection.
 
-## Code scaffolding
+### 2. `RoutePickerComponent`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Responsibility**: Allowing users to select a shipping route.
+- **Features**:
+  - Parse route data from the CSV file.
+  - Provide a list of routes for the user to choose from.
+  - Notify `MapComponent` to update the map when a route is selected.
 
-## Build
+### 3. `SpeedChartComponent`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Responsibility**: Displaying speed changes over time for the selected route.
+- **Features**:
+  - Generate a speed-time chart for the selected shipping route.
+  - Use Google Charts or another charting library for visualization.
 
-## Running unit tests
+### 4. `DataService`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Responsibility**: Handling CSV file parsing and data sharing.
+- **Features**:
+  - Parse the CSV file and provide parsed data to `RoutePickerComponent` and `SpeedChartComponent`.
+  - Implemented as a service for data sharing between components.
 
-## Running end-to-end tests
+### 5. `AppComponent`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Responsibility**: Serving as the main application component and container for other components.
+- **Features**:
+  - Integrate `MapComponent`, `RoutePickerComponent`, and `SpeedChartComponent`.
+  - Manage the overall layout and styling of the application.
 
-## Further help
+## Component Interaction
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **`RoutePickerComponent` and `MapComponent`**:
+  - When a route is selected in `RoutePickerComponent`, notify `MapComponent` to draw the route on the map.
+
+- **`RoutePickerComponent` and `SpeedChartComponent`**:
+  - The same route selection should update `SpeedChartComponent` to display the speed chart of the selected route.
+
+
+## Local Run Instructions
+
+To run this Angular application locally, follow these simple steps:
+
+### Running the Application
+
+1. **Start the Development Server**:
+  - Open a terminal or command prompt in the project's root directory.
+  - Run `ng serve` to start the Angular development server.
+
+2. **Accessing the Application**:
+  - Once the server is running, open a web browser.
+  - Navigate to `http://localhost:4200/`.
+  - The application should now be accessible and fully functional on your local machine.
