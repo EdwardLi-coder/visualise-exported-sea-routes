@@ -1,0 +1,10 @@
+<mat-form-field appearance="fill">
+  <mat-label>choose route</mat-label>
+  <mat-select (selectionChange)="onRouteSelected($event)">
+    <mat-option *ngFor="let route of routes" [value]="route.route_id">
+      {{ route.from_port }} to {{ route.to_port }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
