@@ -1,4 +1,4 @@
-# Marcura Frontend Developer Test - Angular Components
+# Frontend Developer Test - Angular Components
 
 ## Component List
 
